@@ -1,0 +1,36 @@
+{
+    "actorSpecification": 1,
+    "name": "ai-no-code-scraper",
+    "title": "AI-Powered No-Code Scraper (Hugging Face + Compromise.js)",
+    "description": "Intelligent web scraper using Hugging Face AI with Compromise.js fallback",
+    "version": "1.0.0",
+    "meta": {
+        "templateId": "puppeteer"
+    },
+    "input": {
+        "type": "object",
+        "properties": {
+            "url": {
+                "type": "string",
+                "description": "Target website URL"
+            },
+            "prompt": {
+                "type": "string",
+                "description": "What data to extract (e.g., 'product prices and names')"
+            },
+            "useAI": {
+                "type": "boolean",
+                "description": "Use Hugging Face AI (true) or fallback only (false)",
+                "default": true
+            }
+        },
+        "required": ["url"]
+    },
+    "environmentVariables": {
+        "HUGGINGFACE_TOKEN": {
+            "description": "Hugging Face API token for AI features",
+            "isSecret": true,
+            "isOptional": true
+        }
+    }
+}
